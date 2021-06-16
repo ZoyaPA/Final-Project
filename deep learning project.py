@@ -37,6 +37,8 @@ gray_images=np.zeros((50000,32,32))
 for i in range(0,400):
     gray_images[i]=rgb2gray(images[i])
 
+
+
 gray_images[1].shape
 
 plt.imshow(gray_images[399], cmap='gray', vmin=0, vmax=255)
