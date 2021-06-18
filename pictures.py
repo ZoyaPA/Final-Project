@@ -51,7 +51,14 @@ type(gray_images)
 np.save("gray_images",gray_images)
 aaa=np.load('gray_images.npy', mmap_mode='r')
 aaa.shape
-, mmap_mode='r'
+
 
 plt.imshow(aaa[49998], cmap='gray', vmin=0, vmax=255)
 plt.show()
+
+images.shape
+pixels = images.flatten().reshape(50000,3072 )
+print
+pixels.shape
+
+
