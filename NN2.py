@@ -132,4 +132,3 @@ print(output[0]*255)#-images[501])
 
 output.shape
 
-2
