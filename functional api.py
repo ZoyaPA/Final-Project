@@ -39,9 +39,10 @@ model.summary()
 model.compile(optimizer='adam',loss='mse')
 
 y_train_10[0:500].shape
-for i in range(0,50000,500):
+for i in range(0,40000,500):
     print(i)
-    model.fit(x=[y_train_10[i:i+500],gray_images[i:i+500]/255],y=pixels[i:i+500]/255, batch_size=500, epochs=10)
+    model.fit(x=[y_train_10[i:i+500],gray_images[i:i+500]/255],y=pixels[i:i+500]/255, batch_size=500, epochs=100)
+
 pixels.shape
 check = model.predict([y_train_10[700:701],gray_images[700:701]/255])
 check[0]
@@ -52,4 +53,16 @@ plt.imshow(images[700], vmin=0, vmax=1)
 plt.show()
 
 plt.imshow(check[0].reshape(32,32,3), vmin=0, vmax=1)
+plt.show()
+
+
+history = model.fit(x=[y_train_10[0:500],gray_images[0:500]/255],y=pixels[0:500]/255, batch_size=500, epochs=200)
+# list all data in history
+print(history.history.keys())
+# summarize history for accuracy
+plt.plot(history.history['loss'])
+plt.title('model loss by epoch')
+plt.ylabel('mse')
+plt.xlabel('epoch')
+#plt.legend(['train', 'test'], loc='upper left')
 plt.show()
